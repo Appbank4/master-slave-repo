@@ -32,12 +32,12 @@ pipeline{
 					label 'slave1'
 				}
 				steps{
-					sh 'pwd'
+					sh 'free -m'
 				}
 			}
 			stage('4-closing'){
 				agent{
-					lebel 'slave2'
+					label 'slave2'
 				}
 				steps{
 
