@@ -10,7 +10,7 @@ pipeline{
 			}
 			stage('2-parallel jobs'){
 				parallel{
-					stage('1-subjob1'){
+					stage('1-analysis'){
 						steps{
 							sh 'lscpu'
 						}
@@ -35,13 +35,19 @@ pipeline{
 					sh 'free -m'
 				}
 			}
-			stage('4-closing'){
+			stage('4a-closing1'){
 				agent{
 					label 'slave2'
 				}
 				steps{
 
-					echo " We are done here"
+					echo "SATZENBREAU, The Final Word"
+				}
+			}
+			stage('4b-closing2'){
+				steps{
+					sh 'wc -l'
+					sh 'wc -w'
 				}
 			}
 		}
